@@ -27,7 +27,7 @@ a {
 
 .left {
     position: relative;
-    top: 75px;
+    top: 100px;
     width: 300px;
     height: 580px;
     background-color: var(--color1);
@@ -35,6 +35,7 @@ a {
 }
 
 .right {
+    margin-top: 100px;
     width: 800px;
     height: 800px;
 }
@@ -44,6 +45,7 @@ a {
     background-color: var(--color1);
     border-radius: 10px 10px 0px 0px;
     border-bottom: 5px solid var(--color3);
+    margin: auto;
 }
 
 .about {
@@ -97,6 +99,34 @@ a {
 .left_content_item {
     align-content: center;
 }
+
+.navbar_items {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    gap: 5px;
+    align-items: center;
+    margin: auto;
+}
+
+.navbar_item {
+    padding-top: 20px;
+    align-self: center;
+    min-width: 100px;
+    height: 30px;
+    border-bottom: 5px solid var(--color3);
+}
+
+.navbar_item:hover {
+    background-color: var(--color1);
+    border-bottom: 5px solid var(--color1);
+}
+
+
+
+
+
 
 
 
