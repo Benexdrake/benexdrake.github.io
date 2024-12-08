@@ -25,6 +25,8 @@ a {
     margin-top: 50px;
 }
 
+/* Left Side */
+
 .left {
     position: relative;
     top: 100px;
@@ -33,6 +35,39 @@ a {
     background-color: var(--color1);
     border-radius: 10px;
 }
+
+.left_content {
+    position: relative;
+    top: -90px;
+}
+
+.left_content_space {
+    background-color: var(--color2);
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 2px solid var(--color3);
+    text-align: center;
+}
+
+.left_content_title {
+    color: var(--color3);
+}
+
+.left_content_icon {
+    color: var(--color3);
+    font-size: 2rem;
+    width: 50px;
+}
+
+.left_content_item {
+    align-content: center;
+}
+
+/* Right Side */
 
 .right {
     margin-top: 100px;
@@ -69,36 +104,7 @@ a {
     border-bottom: 5px solid var(--color3);
 }
 
-.left_content {
-    position: relative;
-    top: -90px;
-}
 
-.left_content_space {
-    background-color: var(--color2);
-    display: flex;
-    gap: 10px;
-    justify-content: start;
-    
-    margin: 10px;
-    padding: 10px;
-    border-bottom: 2px solid var(--color3);
-    text-align: center;
-}
-
-.left_content_title {
-    color: var(--color3);
-}
-
-.left_content_icon {
-    color: var(--color3);
-    font-size: 2rem;
-    width: 50px;
-}
-
-.left_content_item {
-    align-content: center;
-}
 
 .navbar_items {
     display: flex;
@@ -131,7 +137,7 @@ a {
 
 
 
-
+/* CV Button  */
 .button {
     background-color: var(--color2);
     position: relative;
@@ -175,4 +181,12 @@ a {
     box-shadow: 0 0 10px var(--color3),
     0 0 30px var(--color3),
     0 0 60px var(--color3);
+  }
+
+
+
+  @media screen and (max-width: 1200px){
+    .left {
+        width: 800px;
+    }
   }
