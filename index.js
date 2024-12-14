@@ -85,21 +85,37 @@ let buttonHandler = () =>
     sortButton.addEventListener('change', (event) => {
         sort = parseInt(event.target.value)
         let title = document.getElementById('title')
+        let info = document.getElementById('info')
+        let info_text = document.getElementById('info_text')
+
         sortAlgorithm.cancelationToken = true;
         switch(sort)
         {
             case 1:
                 title.innerText = 'BubbleSort';
+                info.href = 'https://www.geeksforgeeks.org/bubble-sort-algorithms-by-using-javascript/'
+                info_text.innerText = 'Click me for Bubble Sort Information'
                 break;
             case 2:
                 title.innerText = 'SelectionSort';
+                info.href = 'https://javascript.plainenglish.io/selection-sort-939850e195c8'
+                info_text.innerText = 'Click me for Selection Sort Information'
                 break;
             case 3:
                 title.innerText = 'InsertionSort';
+                info.href = 'https://vishalrana9915.medium.com/insertion-sort-using-javascript-6132b42fab90'
+                info_text.innerText = 'Click me for Insertion Sort Information'
+                break;
             case 4:
                 title.innerText = 'ShellSort';
+                info.href = 'https://reintech.io/blog/javascript-for-implementing-shell-sort'
+                info_text.innerText = 'Click me for Shell Sort Information'
+                break;
             case 5:
                 title.innerText = 'CocktailShakerSort';
+                info.href = 'https://medium.com/weekly-webtips/cocktail-sort-in-javascript-6b645c59ecea'
+                info_text.innerText = 'Click me for Cocktail Shaker Sort Information'
+                break;
         }
     })
 

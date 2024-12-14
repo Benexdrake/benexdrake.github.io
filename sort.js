@@ -131,7 +131,7 @@ export default class Sort
 
     async mergeSort()
     {
-        // Später
+        // Später https://dev.to/jaimaldullat/how-merge-sort-works-in-javascript-5c1e
     }
 
     async quickSort()
