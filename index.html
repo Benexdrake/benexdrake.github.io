@@ -3,83 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/74eb824b54.js" crossOrigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/style.css">
-    
-    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer type="module"></script>
+    <title>Sort Alghorithmus</title>
 </head>
 <body>
-    <div class="main">
-        <div class="left">
-            <div class="content">
-                <img class="profile_image" src="images/profile.jpg" alt="">
-                <div class="left_content">
-                    <h1 class="left_content_title">BeneX Drake</h1>
-                    <div class="left_content_space">
-                        <h4 style="margin: 0px;">Fullstack Softwaredeveloper</h4>
-                    </div>
-                    <div class="left_content_space">
-                        <div class="left_content_icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div class="left_content_item">
-                            +49 1234568
-                        </div>
-                    </div>
-                    <div class="left_content_space">
-                        <div class="left_content_icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="left_content_item">
-                            <a href="mailto:email@email.de">email@email.de</a>
-                        </div>
-                    </div>
-                    <div class="left_content_space">
-                        <div class="left_content_icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div class="left_content_item">
-                            Duesseldorf, Ger.
-                        </div>
-                    </div>
-                    <div class="left_content_space">
-                        <div class="left_content_icon">
-                            <i class="fa-solid fa-language"></i>
-                        </div>
-                        <div class="left_content_item">
-                            German, English
-                        </div>
-                    </div>
-                    <div>
-                        <a href='read_the_fucking_Scrum-Guide.pdf' target='_blank' class="button">Download CV</a>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="right">
-            <div class="navbar">
-                <ul class="navbar_items">
-                    <li class="navbar_item">About</li>
-                    <li class="navbar_item">Projects</li>
-                    <li class="navbar_item">CV</li>
-                    <li class="navbar_item">Contact</li>
-                </ul>
-            </div>
-            <div class="about">
-                <div class="content">
-                    <div class="about_header">
-                        <h1>About</h1>
-                    </div>
-                    <div class="about_content">
-                        <p>
-                            Ich bin eine motivierte und vielseitige Person, stets bereit, neue Herausforderungen anzunehmen. Mit Leidenschaft für das Lernen bin ich bestrebt, qualitativ hochwertige Ergebnisse zu liefern. Mit einer positiven Einstellung und einem Wachstumsdenken bin ich bereit, einen bedeutenden Beitrag zu leisten und Großes zu erreichen.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <div id="main">
+        <h1 id="title">BubbleSort</h1>
+        <div id="main_sort"></div>
+        <div>
+            <button id="start" type="button">Start</button>
+            <button id="stop" type="button">Stop</button>
+            <select name="sort" id="sort">
+                <option value="1" selected>BubbleSort</option>
+                <option value="2">SelectionSort</option>
+            </select>
         </div>
     </div>
-    
 </body>
 </html>
