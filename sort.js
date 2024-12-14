@@ -4,10 +4,12 @@ export default class Sort
     constructor()
     {
         this.cancelationToken = false;
+        this.speed = 1;
     }
 
     async bubbleSort()
     {
+        
         let lines = document.getElementsByClassName('line')
         if(lines.length === 0)
             return;
@@ -38,7 +40,7 @@ export default class Sort
                     lines[j+1].style.height = tempHeight;
                     lines[j+1].dataset.value = tempValue;
                     lines[j+1].style.backgroundColor = 'red'
-                    await new Promise(f => setTimeout(f, 1));
+                    await new Promise(f => setTimeout(f, this.speed));
                 }
                 lines[j].style.backgroundColor = 'var(--color3)'
                 lines[j+1].style.backgroundColor = 'var(--color3)'
@@ -85,7 +87,7 @@ export default class Sort
             lines[lowestIndex].style.height = tempHeight
             lines[lowestIndex].dataset.value = tempValue
             lines[lowestIndex].style.backgroundColor = 'red';
-            await new Promise(f => setTimeout(f, 10));
+            await new Promise(f => setTimeout(f, this.speed));
             
             lines[i].style.backgroundColor = 'var(--color3)';
             lines[lowestIndex].style.backgroundColor = 'var(--color3)';

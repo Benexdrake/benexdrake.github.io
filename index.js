@@ -10,6 +10,10 @@ let sortAlgorithm = new Sort();
 let select = document.getElementById('sort');
 select.selectedIndex = 0;
 
+// Setzt den Value der Range auf 1
+let speedButton = document.getElementById('speed')
+speedButton.value = 1;
+
 
 // Erstellt die Linien
 let createLines = () => 
@@ -64,6 +68,7 @@ let buttonHandler = () =>
     let startButton = document.getElementById('start')
     let stopButton = document.getElementById('stop')
     let sortButton = document.getElementById('sort');
+    let speedButton = document.getElementById('speed')
 
     startButton.addEventListener('click', async () => {
         sortAlgorithm.cancelationToken = true;
@@ -77,7 +82,7 @@ let buttonHandler = () =>
 
     // Erweitern um auf weitere Sort Algorithmen zu reagieren.
     // Ändert den Title und den Value von sort
-    sortButton.addEventListener('change', async (event) => {
+    sortButton.addEventListener('change', (event) => {
         sort = parseInt(event.target.value)
         let title = document.getElementById('title')
         sortAlgorithm.cancelationToken = true;
@@ -90,6 +95,10 @@ let buttonHandler = () =>
                 title.innerText = 'SelectionSort'
                 break;
         }
+    })
+
+    speedButton.addEventListener('change', (event) => {
+        sortAlgorithm.speed = parseInt(event.target.value)
     })
 }
 
