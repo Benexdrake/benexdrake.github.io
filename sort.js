@@ -93,4 +93,42 @@ export default class Sort
             lines[lowestIndex].style.backgroundColor = 'var(--color3)';
         }
     }
+
+    async insertionSort() 
+    {
+        let lines = document.getElementsByClassName('line')
+        if(lines.length === 0)
+            return;
+    
+        let length = lines.length;
+
+        for(let i = 1; i< length; i++)
+        {
+            let currentHeight = lines[i].style.height;
+            let currentValue = lines[i].dataset.value;
+
+            let lastIndex = i-1;
+
+            while(lastIndex >= 0 && parseInt(lines[lastIndex].dataset.value) > parseInt(currentValue))
+            {
+                if(this.cancelationToken == true)
+                {
+                    return;
+                }
+                
+                lines[lastIndex+1].dataset.value = lines[lastIndex].dataset.value;
+                lines[lastIndex+1].style.height = lines[lastIndex].style.height;
+                lines[lastIndex+1].style.backgroundColor = 'red'
+                await new Promise(f => setTimeout(f, this.speed));
+                lines[lastIndex+1].style.backgroundColor = 'var(--color3)';
+                lastIndex--;
+            }
+
+            lines[lastIndex+1].style.height = currentHeight;
+            lines[lastIndex+1].dataset.value = currentValue;
+        }
+
+
+    }
+
 }

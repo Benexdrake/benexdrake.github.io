@@ -89,11 +89,13 @@ let buttonHandler = () =>
         switch(sort)
         {
             case 1:
-                title.innerText = 'BubbleSort'
+                title.innerText = 'BubbleSort';
                 break;
             case 2:
-                title.innerText = 'SelectionSort'
+                title.innerText = 'SelectionSort';
                 break;
+            case 3:
+                title.innerText = 'InsertionSort';
         }
     })
 
@@ -118,6 +120,9 @@ let main = async () =>
             break;
         case 2:
             await sortAlgorithm.selectionSort();
+            break;
+        case 3:
+            await sortAlgorithm.insertionSort();
             break;
     }
 
