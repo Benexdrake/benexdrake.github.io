@@ -115,7 +115,7 @@ export default class Sort
                 {
                     return;
                 }
-                
+
                 lines[lastIndex+1].dataset.value = lines[lastIndex].dataset.value;
                 lines[lastIndex+1].style.height = lines[lastIndex].style.height;
                 lines[lastIndex+1].style.backgroundColor = 'red'
@@ -127,8 +127,155 @@ export default class Sort
             lines[lastIndex+1].style.height = currentHeight;
             lines[lastIndex+1].dataset.value = currentValue;
         }
+    }
 
+    async mergeSort()
+    {
+        // Später
+    }
 
+    async quickSort()
+    {
+        // Später https://www.freecodecamp.org/news/how-to-write-quick-sort-algorithm-with-javascript/
+    }
+
+    async countingSort()
+    {
+        // Später https://learnersbucket.com/tutorials/algorithms/counting-sort-algorithm-in-javascript/
+    }
+
+    async radixSort()
+    {
+        // Später https://www.doabledanny.com/radix-sort-in-javascript
+    }
+
+    async bucketSort()
+    {
+        // Später https://initjs.org/bucket-sort-in-javascript-dc040b8f0058
+    }
+
+    async heapSort()
+    {
+        // Später https://initjs.org/implementing-heap-sort-in-javascript-85ea3d0e4ca6
+    }
+
+    async shellSort()
+    {
+        // https://reintech.io/blog/javascript-for-implementing-shell-sort
+
+        let lines = document.getElementsByClassName('line')
+        if(lines.length === 0)
+            return;
+    
+        let length = lines.length;
+
+        for(let gap = Math.floor(length / 2); gap > 0; gap = Math.floor(gap/2))
+        {
+            for(let i = gap; i < length; i++)
+            {
+                let tempHeight = lines[i].style.height;
+                let tempValue = lines[i].dataset.value;
+                let j = i;
+
+                for(j; j >= gap && parseInt(lines[j-gap].dataset.value) > parseInt(tempValue); j -= gap)
+                {
+                    if(this.cancelationToken == true)
+                    {
+                            return;
+                    }
+
+                    lines[j].dataset.value = lines[j-gap].dataset.value;
+                    lines[j].style.height = lines[j-gap].style.height;
+                    lines[j].style.backgroundColor = 'red';
+                    await new Promise(f => setTimeout(f, this.speed));
+                    lines[j].style.backgroundColor = 'var(--color3)';
+                }
+
+                lines[j].dataset.value = tempValue;
+                lines[j].style.height = tempHeight;
+            }
+        }
+    }
+
+    async cocktailShakerSort()
+    {
+        let lines = document.getElementsByClassName('line')
+        if(lines.length === 0)
+            return;
+    
+        let length = lines.length;
+
+        let is_Sorted = true;
+
+        while(is_Sorted)
+        {
+
+            for(let i = 0; i < length - 1; i++)
+            {
+                if(this.cancelationToken == true)
+                {
+                    return;
+                }
+    
+                let line1 = parseInt(lines[i].dataset.value);
+                let line2 = parseInt(lines[i + 1].dataset.value);
+
+                if(line1 > line2)
+                {
+                    let tempHeight = lines[i].style.height;
+                    let tempValue = lines[i].dataset.value;
+    
+                    lines[i].style.height = lines[i+1].style.height;
+                    lines[i].dataset.value = lines[i+1].dataset.value;
+                    lines[i].style.backgroundColor = 'blue'
+                    
+                    lines[i+1].style.height = tempHeight;
+                    lines[i+1].dataset.value = tempValue;
+                    lines[i+1].style.backgroundColor = 'red'
+
+                    await new Promise(f => setTimeout(f, this.speed));
+                    
+                    lines[i].style.backgroundColor = 'var(--color3)'
+                    lines[i+1].style.backgroundColor = 'var(--color3)'
+                    
+                    is_Sorted = true;
+                }
+            }
+
+                if(!is_Sorted)
+                    break;
+
+                is_Sorted = false;
+
+                
+                for(let j = length - 1; j > 0; j--)
+                {
+                    let line1 = parseInt(lines[j-1].dataset.value);
+                    let line2 = parseInt(lines[j].dataset.value);
+
+                    if(line1 > line2)
+                    {
+                        let tempHeight = lines[j].style.height;
+                        let tempValue = lines[j].dataset.value;
+                        
+                        lines[j].style.height = lines[j-1].style.height;
+                        lines[j].dataset.value = lines[j-1].dataset.value;
+                        lines[j].style.backgroundColor = 'blue'
+                        
+                        lines[j-1].style.height = tempHeight;
+                        lines[j-1].dataset.value = tempValue;
+                        lines[j-1].style.backgroundColor = 'red'
+
+                        await new Promise(f => setTimeout(f, this.speed));
+                        
+                        lines[j].style.backgroundColor = 'var(--color3)'
+                        lines[j-1].style.backgroundColor = 'var(--color3)'
+                        
+                        is_Sorted = true;
+                    }
+
+                }
+        }
     }
 
 }

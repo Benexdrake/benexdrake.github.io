@@ -96,6 +96,10 @@ let buttonHandler = () =>
                 break;
             case 3:
                 title.innerText = 'InsertionSort';
+            case 4:
+                title.innerText = 'ShellSort';
+            case 5:
+                title.innerText = 'CocktailShakerSort';
         }
     })
 
@@ -123,6 +127,12 @@ let main = async () =>
             break;
         case 3:
             await sortAlgorithm.insertionSort();
+            break;
+        case 4:
+            await sortAlgorithm.shellSort();
+            break;
+        case 5:
+            await sortAlgorithm.cocktailShakerSort();
             break;
     }
 
