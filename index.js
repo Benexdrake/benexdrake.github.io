@@ -98,7 +98,11 @@ let buttonHandler = () =>
     })
 
     speedButton.addEventListener('change', (event) => {
+        let speedLabel = document.getElementById('speed_label');
+
         sortAlgorithm.speed = parseInt(event.target.value)
+
+        speedLabel.innerText = `Speed: ${sortAlgorithm.speed}ms`
     })
 }
 

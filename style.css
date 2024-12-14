@@ -40,9 +40,35 @@ button:hover, select:hover {
 }
 
 input {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--color3);
+    transition: opacity .2s;
     width: 100%;
+    height: 25px;
+    border: 2px solid var(--color4);
 }
 
+input::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+input::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: var(--color1); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+label {
+    color: var(--color4);
+    font-size: 2rem;
+}
 
 
 #main {
