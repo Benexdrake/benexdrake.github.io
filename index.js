@@ -116,6 +116,10 @@ let buttonHandler = () =>
                 info.href = 'https://medium.com/weekly-webtips/cocktail-sort-in-javascript-6b645c59ecea'
                 info_text.innerText = 'Click me for Cocktail Shaker Sort Information'
                 break;
+            case 6:
+                title.innerText = 'HeapSort'
+                info.href = 'https://www.geeksforgeeks.org/heap-sort/';
+                info_text.innerText = 'Click me for Heap Sort Information'
         }
     })
 
@@ -137,7 +141,6 @@ let main = async () =>
     {
         case 1:
             await sortAlgorithm.bubbleSort();
-            // await sortAlgorithm.heapSort();
             break;
         case 2:
             await sortAlgorithm.selectionSort();
@@ -150,6 +153,9 @@ let main = async () =>
             break;
         case 5:
             await sortAlgorithm.cocktailShakerSort();
+            break;
+        case 6:
+            await sortAlgorithm.heapSort();
             break;
     }
 

@@ -207,9 +207,6 @@ export default class Sort
         let lineRight = parseInt(lines[right]?.dataset.value)
         let lineLargest = parseInt(lines[largest]?.dataset.value)
 
-        console.log(lineLeft)
-        console.log(lineRight)
-        
         if(left < n && lineLeft > lineLargest)
             largest = left;
         
@@ -226,7 +223,11 @@ export default class Sort
 
             lines[largest].style.height = tempHeight;
             lines[largest].dataset.value = tempValue;
+            lines[largest].style.backgroundColor = 'red';
+
             await new Promise(f => setTimeout(f, this.speed));
+            
+            lines[largest].style.backgroundColor = 'var(--color3)';
 
             await this.heapify(n, largest)
         }
