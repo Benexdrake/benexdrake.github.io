@@ -156,7 +156,77 @@ export default class Sort
 
     async heapSort()
     {
-        // Später https://initjs.org/implementing-heap-sort-in-javascript-85ea3d0e4ca6
+        // Später https://www.geeksforgeeks.org/heap-sort/
+        let lines = document.getElementsByClassName('line')
+        if(lines.length === 0)
+            return;
+    
+        let n = lines.length;
+
+        for(let i = Math.floor(n / 2) - 1; i >= 0; i--)
+        {
+            await this.heapify(n, i);
+        }
+
+        for(let i = n - 1; i >= 0; i--)
+        {
+            if(this.cancelationToken == true)
+            {
+                return;
+            }
+
+            let tempHeight = lines[0].style.height;
+            let tempValue = lines[0].dataset.value;
+
+            lines[0].style.height = lines[i].style.height;
+            lines[0].dataset.value = lines[i].dataset.value;
+
+            lines[i].style.height = tempHeight;
+            lines[i].dataset.value = tempValue;
+
+            await this.heapify(i,0);
+        }
+    }
+    
+    async heapify(n, i)
+    {
+        if(this.cancelationToken == true)
+        {
+            return;
+        }
+
+        let lines = document.getElementsByClassName('line')
+        if(lines.length === 0)
+            return;
+
+        let left = 2 * i + 1;
+        let right = 2 * i + 2;
+        let largest = i;
+        
+        let lineLeft = parseInt(lines[left].dataset.value)
+        let lineRight = parseInt(lines[right].dataset.value)
+        let lineLargest = parseInt(lines[largest].dataset.value)
+        
+        if(left < n && lineLeft > lineLargest)
+            largest = left;
+        
+        if(right < n && lineRight > lineLargest)
+            largest = right;
+
+        if(largest !== i)
+        {
+            let tempHeight = lines[i].style.height;
+            let tempValue = lines[i].dataset.value;
+            
+            lines[i].style.height = lines[largest].style.height;
+            lines[i].dataset.value = lines[largest].dataset.value;
+
+            lines[largest].style.height = tempHeight;
+            lines[largest].dataset.value = tempValue;
+            await new Promise(f => setTimeout(f, this.speed));
+
+            await this.heapify(n, largest)
+        }
     }
 
     async shellSort()

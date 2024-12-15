@@ -137,6 +137,7 @@ let main = async () =>
     {
         case 1:
             await sortAlgorithm.bubbleSort();
+            // await sortAlgorithm.heapSort();
             break;
         case 2:
             await sortAlgorithm.selectionSort();
