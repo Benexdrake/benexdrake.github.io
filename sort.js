@@ -203,9 +203,12 @@ export default class Sort
         let right = 2 * i + 2;
         let largest = i;
         
-        let lineLeft = parseInt(lines[left].dataset.value)
-        let lineRight = parseInt(lines[right].dataset.value)
-        let lineLargest = parseInt(lines[largest].dataset.value)
+        let lineLeft = parseInt(lines[left]?.dataset.value)
+        let lineRight = parseInt(lines[right]?.dataset.value)
+        let lineLargest = parseInt(lines[largest]?.dataset.value)
+
+        console.log(lineLeft)
+        console.log(lineRight)
         
         if(left < n && lineLeft > lineLargest)
             largest = left;
