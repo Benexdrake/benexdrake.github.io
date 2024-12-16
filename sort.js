@@ -158,22 +158,17 @@ export default class Sort
     {
         // Später https://www.geeksforgeeks.org/heap-sort/
         let lines = document.getElementsByClassName('line')
-        if(lines.length === 0)
-            return;
+        
+        if(lines.length === 0) return;
     
-        let n = lines.length;
+        const n = lines.length;
 
         for(let i = Math.floor(n / 2) - 1; i >= 0; i--)
-        {
             await this.heapify(n, i);
-        }
 
         for(let i = n - 1; i >= 0; i--)
         {
-            if(this.cancelationToken == true)
-            {
-                return;
-            }
+            if(this.cancelationToken) return;
 
             let tempHeight = lines[0].style.height;
             let tempValue = lines[0].dataset.value;
@@ -190,22 +185,19 @@ export default class Sort
     
     async heapify(n, i)
     {
-        if(this.cancelationToken == true)
-        {
-            return;
-        }
+        if(this.cancelationToken) return;
 
         let lines = document.getElementsByClassName('line')
-        if(lines.length === 0)
-            return;
+        
+        if(lines.length === 0) return;
 
         let left = 2 * i + 1;
         let right = 2 * i + 2;
         let largest = i;
         
-        let lineLeft = parseInt(lines[left]?.dataset.value)
-        let lineRight = parseInt(lines[right]?.dataset.value)
-        let lineLargest = parseInt(lines[largest]?.dataset.value)
+        let lineLeft = parseInt(lines[left]?.dataset.value) || 0;
+        let lineRight = parseInt(lines[right]?.dataset.value) || 0;
+        let lineLargest = parseInt(lines[largest]?.dataset.value) || 0;
 
         if(left < n && lineLeft > lineLargest)
             largest = left;
@@ -223,6 +215,7 @@ export default class Sort
 
             lines[largest].style.height = tempHeight;
             lines[largest].dataset.value = tempValue;
+            
             lines[largest].style.backgroundColor = 'red';
 
             await new Promise(f => setTimeout(f, this.speed));
